@@ -1,0 +1,69 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1755372081056,
+      "tag": "0000_stale_matthew_murdock",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1755459794295,
+      "tag": "0001_shocking_omega_sentinel",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1755728245186,
+      "tag": "0002_redundant_plazm",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1755974969008,
+      "tag": "0003_chemical_karnak",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1755975169869,
+      "tag": "0004_magenta_maggott",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1755975276464,
+      "tag": "0005_dashing_rafael_vega",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1755979666943,
+      "tag": "0006_remarkable_triton",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1756150022834,
+      "tag": "0007_keen_doorman",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1756151153251,
+      "tag": "0008_fast_shadow_king",
+      "breakpoints": true
+    }
+  ]
+}
