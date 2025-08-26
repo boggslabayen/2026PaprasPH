@@ -64,6 +64,13 @@
       "when": 1756151153251,
       "tag": "0008_fast_shadow_king",
       "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1756207757713,
+      "tag": "0009_dizzy_master_mold",
+      "breakpoints": true
     }
   ]
 }

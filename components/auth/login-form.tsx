@@ -3,7 +3,7 @@
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginSchema } from "@/types/login-schema";
-import z from "zod";
+import z, { success } from "zod";
 import Link from "next/link";
 import { emailSignIn } from "@/server/actions/email-signin";
 import { useAction } from "next-safe-action/hooks";
@@ -11,6 +11,8 @@ import { useState } from "react";
 
 import { AuthCard } from "./auth-cards.";
 import { Card, Input, Typography, Button } from "@material-tailwind/react";
+import { FormSuccess } from "./form-success";
+import { FormError } from "./form-error";
 
 export const LoginForm = () => {
   const form = useForm({
@@ -22,9 +24,12 @@ export const LoginForm = () => {
   });
 
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
   const { execute, status } = useAction(emailSignIn, {
     onSuccess(data) {
-      console.log(data);
+      if (data.data?.error) setError(data.data.error);
+      if (data.data?.success) setSuccess(data.data.success);
     },
   });
 
@@ -141,6 +146,8 @@ export const LoginForm = () => {
                   </>
                 )}
               />
+              <FormSuccess message={success} />
+              <FormError message={error} />
               <Button
                 variant="text"
                 placeholder={undefined}
