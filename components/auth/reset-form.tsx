@@ -2,68 +2,44 @@
 
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { LoginSchema } from "@/types/login-schema";
-import z, { success } from "zod";
+import { ResetSchema } from "@/types/reset-schema";
+import * as z from "zod";
 import Link from "next/link";
-import { emailSignIn } from "@/server/actions/email-signin";
 import { useAction } from "next-safe-action/hooks";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { signIn } from "next-auth/react";
 
 import { AuthCard } from "./auth-cards.";
 import { Card, Input, Typography, Button } from "@material-tailwind/react";
 import { FormSuccess } from "./form-success";
 import { FormError } from "./form-error";
+import { reset } from "@/server/actions/password-reset";
 
-export const LoginForm = () => {
-  const form = useForm({
-    resolver: zodResolver(LoginSchema),
+export const ResetForm = () => {
+  const form = useForm<z.infer<typeof ResetSchema>>({
+    resolver: zodResolver(ResetSchema),
     defaultValues: {
       email: "",
-      password: "",
     },
   });
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const router = useRouter();
 
-  const { execute, status } = useAction(emailSignIn, {
+  const { execute, status } = useAction(reset, {
     onSuccess(data) {
       if (data.data?.error) setError(data.data.error);
       if (data.data?.success) setSuccess(data.data.success);
-      if (data.data?.redirectTo) {
-        router.push(data.data.redirectTo);
-      }
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof LoginSchema>) => {
-    // console.log(values);
-    // execute(values);
-
-    setError("");
-    setSuccess("");
-
-    const result = await signIn("credentials", {
-      email: values.email,
-      password: values.password,
-      redirect: false, // keep control in React
-      callbackUrl: "/dashboard", // where to go after login
-    });
-
-    if (result?.error) {
-      setError("Invalid email or password.");
-    } else {
-      router.push("/dashboard");
-    }
+  const onSubmit = async (values: z.infer<typeof ResetSchema>) => {
+    execute(values);
   };
   return (
     <AuthCard
-      cardTitle="Welcome Back"
-      backButtonHref="/auth/register"
-      backButtonLabel="Create an Account"
+      cardTitle="Forgot your password?"
+      backButtonHref="/auth/login"
+      backButtonLabel="Back to Login"
       showSocials
     >
       {/* Form Fields Live under this comment */}
@@ -110,51 +86,15 @@ export const LoginForm = () => {
                       onPointerEnterCapture={undefined}
                       onPointerLeaveCapture={undefined}
                     >
-                      Your Email
+                      Email
                     </Typography>
                     <Input
                       {...field}
                       size="lg"
-                      placeholder="name@mail.com"
+                      placeholder="email@gmail.com"
                       type="email"
                       autoComplete="email"
-                      className=" border-1 border-gray-200 px-2 focus:border-blue-500"
-                      labelProps={{
-                        className: "before:content-none after:content-none",
-                      }}
-                      onResize={undefined}
-                      onResizeCapture={undefined}
-                      onPointerEnterCapture={undefined}
-                      onPointerLeaveCapture={undefined}
-                      crossOrigin={undefined}
-                    />
-                  </>
-                )}
-              />
-
-              <Controller
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <>
-                    <Typography
-                      variant="h6"
-                      color="blue-gray"
-                      className="-mb-3"
-                      placeholder={undefined}
-                      onResize={undefined}
-                      onResizeCapture={undefined}
-                      onPointerEnterCapture={undefined}
-                      onPointerLeaveCapture={undefined}
-                    >
-                      Password
-                    </Typography>
-                    <Input
-                      {...field}
-                      size="lg"
-                      placeholder="*********"
-                      type="password"
-                      autoComplete="current-password"
+                      disabled={status === "executing"}
                       className=" border-1 border-gray-200 px-2 focus:border-blue-500"
                       labelProps={{
                         className: "before:content-none after:content-none",
@@ -196,7 +136,7 @@ export const LoginForm = () => {
                 status === "executing" ? "animate-pulse" : ""
               }`}
             >
-              {"Login"}
+              Reset Password
             </Button>
           </form>
         </Card>

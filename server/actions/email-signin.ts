@@ -106,7 +106,7 @@ export const emailSignIn = actionClient
       }
 
       // Return success and user info; client should call signIn() next
-      return { success: "Credentials valid", user: { email: user.email } };
+      return { success: "Credentials valid", user: { email: user.email }, redirectTo: "/dashboard" };
     } catch (error) {
       console.error(error);
       return { error: "Something went wrong" };
