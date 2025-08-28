@@ -3,6 +3,7 @@ import { manrope, roboto } from "./ui/fonts/fonts";
 import "./globals.css";
 import { NavbarWithMegaMenu } from "@/components/ui/megamenu";
 import Footer from "@/components/ui/footer";
+// import { usePathname } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,3 +27,22 @@ export default function RootLayout({
     </html>
   );
 }
+
+// export default function RootLayout({
+//   children,
+// }: {
+//   children: React.ReactNode;
+// }) {
+//   const pathname = usePathname();
+//   const isDashboard = pathname.startsWith("/dashboard");
+
+//   return (
+//     <html lang="en">
+//       <body className={`${roboto.className} ${manrope.className} antialiased`}>
+//         {!isDashboard && <NavbarWithMegaMenu />}
+//         {children}
+//         {!isDashboard && <Footer />}
+//       </body>
+//     </html>
+//   );
+// }
