@@ -1,6 +1,6 @@
 "use client";
 
-import { manrope, roboto } from "../ui/fonts/fonts";
+import { manrope, roboto } from "@/app/ui/fonts/fonts";
 import Image from "next/image";
 import { Button } from "@material-tailwind/react";
 

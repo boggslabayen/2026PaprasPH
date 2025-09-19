@@ -35,7 +35,7 @@ export function StickyNavbar() {
         onPointerEnterCapture={undefined}
         onPointerLeaveCapture={undefined}
       >
-        <a href="#" className="flex items-center">
+        <a href="/about" className="flex items-center">
           About
         </a>
       </Typography>

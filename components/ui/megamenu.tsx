@@ -186,7 +186,7 @@ const NavList = (
   >
     <Typography
       as="a"
-      href="#"
+      href="/about"
       variant="small"
       color="blue-gray"
       className="font-medium"

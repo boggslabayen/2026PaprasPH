@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { roboto, manrope } from "./ui/fonts/fonts";
-import AboutPapras from "./sections/aboutpapras";
-import BecomeAMember from "./sections/becomember";
-import EventSnippet from "./sections/eventsnippets";
-import ArticleSnippet from "./sections/articlesnippets";
-import PatientEducatioSnippet from "./sections/patienteducationsnip";
+import AboutPapras from "@/components/sections/aboutpapras";
+import BecomeAMember from "@/components/sections/becomember";
+import EventSnippet from "@/components/sections/eventsnippets";
+import ArticleSnippet from "@/components/sections/articlesnippets";
+import PatientEducatioSnippet from "@/components/sections/patienteducationsnip";
 
 export default function Home() {
   return (

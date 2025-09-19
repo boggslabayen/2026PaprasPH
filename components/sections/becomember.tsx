@@ -1,6 +1,6 @@
 "use client";
 
-import classes from "@/app/sections/becomemember.module.css";
+import classes from "@/components/sections/becomemember.module.css";
 import { manrope, roboto } from "@/app/ui/fonts/fonts";
 import Image from "next/image";
 import { Button } from "@material-tailwind/react";
