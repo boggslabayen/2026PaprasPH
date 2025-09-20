@@ -20,6 +20,8 @@ import { FormSuccess } from "@/components/auth/form-success";
 import { useState } from "react";
 import { useAction } from "next-safe-action/hooks";
 import { settings } from "@/server/actions/settings";
+import "@uploadthing/react/styles.css";
+import { UploadButton } from "@/app/api/uploadthing/upload";
 
 type SettingsForm = {
   session: Session;
@@ -121,7 +123,7 @@ export default function SettingsCard(session: SettingsForm) {
                 {/* Avatar */}
                 <Controller
                   control={form.control}
-                  name="name"
+                  name="image"
                   render={({ field }) => (
                     <>
                       <Typography
@@ -136,7 +138,7 @@ export default function SettingsCard(session: SettingsForm) {
                       >
                         Avatar
                       </Typography>
-                      <div className="flex">
+                      <div className="flex flex-col">
                         {!form.getValues("image") && (
                           <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-300 text-sm font-medium text-gray-700">
                             {session.session.user?.name
@@ -157,6 +159,38 @@ export default function SettingsCard(session: SettingsForm) {
                             onPointerLeaveCapture={undefined}
                           />
                         )}
+                        <UploadButton
+                          appearance={{
+                            button: "",
+                            container:
+                              "w-max flex-row rounded-md border-cyan-300  mt-4",
+                            allowedContent:
+                              "flex h-8 flex-col items-center justify-center px-2 text-black",
+                          }}
+                          endpoint={"avatarUploader"}
+                          onUploadBegin={() => {
+                            setAvatarUploading(true);
+                          }}
+                          onUploadError={(error) => {
+                            form.setError("image", {
+                              type: "validate",
+                              message: error.message,
+                            });
+                            setAvatarUploading(false);
+                            return;
+                          }}
+                          onClientUploadComplete={(res) => {
+                            form.setValue("image", res[0].ufsUrl);
+                            setAvatarUploading(false);
+                            return;
+                          }}
+                          content={{
+                            button({ ready }) {
+                              if (ready) return <div>Change Avatar</div>;
+                              return <div>Uploading...</div>;
+                            },
+                          }}
+                        />
                       </div>
                     </>
                   )}

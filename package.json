@@ -17,6 +17,7 @@
     "@material-tailwind/react": "^2.1.10",
     "@neondatabase/serverless": "^1.0.1",
     "@paralleldrive/cuid2": "^2.2.2",
+    "@uploadthing/react": "^7.3.3",
     "bcrypt": "^6.0.0",
     "dotenv": "^17.2.1",
     "drizzle-orm": "^0.44.4",
@@ -33,6 +34,7 @@
     "resend": "^6.0.1",
     "studio": "^0.13.5",
     "tailwind-merge": "^3.3.1",
+    "uploadthing": "^7.7.4",
     "zod": "^4.0.17"
   },
   "devDependencies": {
