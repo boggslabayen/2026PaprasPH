@@ -5,6 +5,7 @@ import { createSafeActionClient } from "next-safe-action";
 import { db } from "..";
 import { eq } from "drizzle-orm";
 import { articles } from "../schema";
+import { revalidatePath } from "next/cache";
 
 const action = createSafeActionClient();
 
@@ -20,11 +21,17 @@ export const createArticle = action
         const editedArticle = await db
         .update(articles)
         .set({description,title})
-        .where(eq(articles.id,id)).returning();
-        return { success: `Article ${editedArticle[0].title} has been created`}
+        .where(eq(articles.id,id))
+        .returning();
+        revalidatePath("/dashboard/articles")
+        return { success: `Article ${editedArticle[0].title} has been updated`}
     } 
     if(!id){
-        const newArticle =await db.insert(articles).values({description,title}).returning();
+        const newArticle =await db
+        .insert(articles)
+        .values({description,title})
+        .returning();
+        revalidatePath("/dashboard/articles")
         return { success: `Article ${newArticle[0].title} has been created`}
     }
 

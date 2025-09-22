@@ -6,7 +6,7 @@ import {
   Typography,
   Button,
   Input,
-  Avatar,
+  Textarea,
 } from "@material-tailwind/react";
 
 import { useForm, Controller, FormProvider } from "react-hook-form";
@@ -16,8 +16,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useAction } from "next-safe-action/hooks";
 import { createArticle } from "@/server/actions/create-articles";
 import z from "zod";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
+import { getArticle } from "@/server/actions/get-articles";
+import { useEffect } from "react";
 
 export default function ArticlesForm() {
   const form = useForm<zArticleSchema>({
@@ -30,12 +32,37 @@ export default function ArticlesForm() {
   });
 
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const editMode = searchParams.get("id");
+
+  const checkArticle = async (id: number) => {
+    if (editMode) {
+      const data = await getArticle(id);
+      if (data.error) {
+        toast.error(data.error);
+        router.push("/dashboard/articles");
+        return;
+      }
+      if (data.success) {
+        const id = parseInt(editMode);
+        form.setValue("title", data.success.title);
+        form.setValue("description", data.success.description);
+        form.setValue("id", id);
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (editMode) {
+      checkArticle(parseInt(editMode));
+    }
+  }, []);
 
   const { execute, status } = useAction(createArticle, {
     onSuccess: (data) => {
       if (data.data?.success) {
         console.log(data.data.success);
-        router.push("/dashboard");
+        router.push("/dashboard/articles");
         toast.success("Successfully Created");
       }
     },
@@ -69,7 +96,7 @@ export default function ArticlesForm() {
           onPointerEnterCapture={undefined}
           onPointerLeaveCapture={undefined}
         >
-          Add New Article
+          {editMode ? <span>Edit Article</span> : <span>Add New Article</span>}
         </Typography>
       </div>
 
@@ -155,6 +182,7 @@ export default function ArticlesForm() {
                         >
                           Article Description
                         </Typography>
+
                         <Tiptap val={field.value} />
                       </>
                     )}

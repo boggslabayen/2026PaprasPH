@@ -6,7 +6,7 @@ import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { Bold, Italic, List, ListOrdered, Strikethrough } from "lucide-react";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 
 const Tiptap = ({ val }: { val: string }) => {
@@ -43,6 +43,10 @@ const Tiptap = ({ val }: { val: string }) => {
     // Don't render immediately on the server to avoid SSR issues
     immediatelyRender: false,
   });
+
+  useEffect(() => {
+    if (editor?.isEmpty) editor.commands.setContent(val);
+  }, [val]);
 
   return (
     <div className="flex flex-col">
@@ -105,7 +109,10 @@ const Tiptap = ({ val }: { val: string }) => {
           </Toggle>
         </div>
       )}
-      <EditorContent editor={editor} />
+      <EditorContent
+        editor={editor}
+        className="min-h-[200px] prose max-w-none focus:outline-none"
+      />
     </div>
   );
 };
