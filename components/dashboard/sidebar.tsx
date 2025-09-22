@@ -27,7 +27,7 @@ import { UserButton } from "./user-button";
 export function Sidebar() {
   return (
     <Card
-      className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5"
+      className="min-h-full w-full max-w-[20rem] p-4 shadow-sm shadow-blue-gray-900/5 rounded-none"
       placeholder={undefined}
       onResize={undefined}
       onResizeCapture={undefined}
