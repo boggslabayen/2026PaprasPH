@@ -11,7 +11,7 @@ import {
 
 import { useForm, Controller, FormProvider } from "react-hook-form";
 import { ArticleSchema, zArticleSchema } from "@/types/articles-schema";
-import Tiptap from "./tiptap";
+import Tiptap from "../tiptap";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useAction } from "next-safe-action/hooks";
 import { createArticle } from "@/server/actions/create-articles";
@@ -50,7 +50,7 @@ export default function ArticlesForm() {
 
   return (
     <Card
-      className="m-6 w-1/2 border-2 border-gray-200 bg-white"
+      className="m-6 border-2 border-gray-200 w-full"
       placeholder={undefined}
       onResize={undefined}
       onResizeCapture={undefined}
@@ -79,8 +79,9 @@ export default function ArticlesForm() {
         onResizeCapture={undefined}
         onPointerEnterCapture={undefined}
         onPointerLeaveCapture={undefined}
+        className="w-full "
       >
-        <div>
+        <div className="">
           <Card
             color="transparent"
             shadow={false}
@@ -89,14 +90,15 @@ export default function ArticlesForm() {
             onResizeCapture={undefined}
             onPointerEnterCapture={undefined}
             onPointerLeaveCapture={undefined}
+            className="w-full"
             //   {...form}
           >
             <FormProvider {...form}>
               <form
-                className=" mb-2 w-80 max-w-screen-lg sm:w-96"
+                className=" mb-2 w-full max-w-screen-lg  "
                 onSubmit={form.handleSubmit(onSubmit)}
               >
-                <div className="mb-1 flex flex-col gap-6">
+                <div className="mb-1 flex flex-col gap-6 w-full">
                   {/* Article Title */}
                   <Controller
                     control={form.control}
@@ -120,7 +122,7 @@ export default function ArticlesForm() {
                           size="lg"
                           placeholder="Article Title"
                           type="text"
-                          className=" border-1 border-gray-200 px-2 focus:border-blue-500"
+                          className=" border-1 border-gray-200 px-2 focus:border-blue-500 w-full"
                           labelProps={{
                             className: "before:content-none after:content-none",
                           }}
