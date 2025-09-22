@@ -16,6 +16,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useAction } from "next-safe-action/hooks";
 import { createArticle } from "@/server/actions/create-articles";
 import z from "zod";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 export default function ArticlesForm() {
   const form = useForm<zArticleSchema>({
@@ -27,12 +29,17 @@ export default function ArticlesForm() {
     mode: "onChange",
   });
 
+  const router = useRouter();
+
   const { execute, status } = useAction(createArticle, {
     onSuccess: (data) => {
       if (data.data?.success) {
         console.log(data.data.success);
+        router.push("/dashboard");
+        toast.success("Successfully Created");
       }
     },
+    onExecute: (data) => {},
     onError: (error) => console.error(error),
   });
 
@@ -162,11 +169,11 @@ export default function ArticlesForm() {
                   onPointerEnterCapture={undefined}
                   onPointerLeaveCapture={undefined}
                   className="bg-amber-400  text-black hover:text-amber-400 hover:bg-black py-2 rounded-full w-64 my-8"
-                  // disabled={
-                  //   status === "executing" ||
-                  //   !form.formState.isValid ||
-                  //   !form.formState.isDirty
-                  // }
+                  disabled={
+                    status === "executing" ||
+                    !form.formState.isValid ||
+                    !form.formState.isDirty
+                  }
                 >
                   {"Save Article"}
                 </Button>

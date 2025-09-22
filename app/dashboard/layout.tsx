@@ -1,6 +1,5 @@
 import { Sidebar } from "@/components/dashboard/sidebar";
 import { auth } from "@/server/auth";
-import { ThemeProvider } from "@material-tailwind/react";
 
 export default async function DashboardLayout({
   children,
@@ -9,7 +8,7 @@ export default async function DashboardLayout({
 }>) {
   const session = await auth();
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
         <div className="flex">
           {session ? <Sidebar /> : null}

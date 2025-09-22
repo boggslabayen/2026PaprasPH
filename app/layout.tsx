@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { manrope, roboto } from "./ui/fonts/fonts";
 import "./globals.css";
 import { NavbarWithMegaMenu } from "@/components/ui/megamenu";
+
 import Footer from "@/components/ui/footer";
+import Toaster from "@/components/ui/toaster";
 // import { usePathname } from "next/navigation";
 
 export const metadata: Metadata = {
@@ -16,9 +18,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${roboto.className} ${manrope.className} antialiased`}>
         {/* <StickyNavbar /> */}
+        <Toaster />
         <NavbarWithMegaMenu />
 
         {children}
