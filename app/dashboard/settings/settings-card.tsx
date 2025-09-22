@@ -7,7 +7,6 @@ import {
   Button,
   Input,
   Avatar,
-  Switch,
 } from "@material-tailwind/react";
 
 import { Session } from "next-auth";
@@ -70,6 +69,7 @@ export default function SettingsCard(session: SettingsForm) {
       onPointerEnterCapture={undefined}
       onPointerLeaveCapture={undefined}
     >
+      {/* Card Header */}
       <div className="p-4">
         <Typography
           variant={undefined}

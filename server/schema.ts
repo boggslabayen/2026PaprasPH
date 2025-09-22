@@ -5,10 +5,12 @@ import {
   text,
   primaryKey,
   integer,
-  pgEnum
+  pgEnum,
+  serial
 } from "drizzle-orm/pg-core"
 import type { AdapterAccountType } from "@auth/core/adapters"
 import {createId} from "@paralleldrive/cuid2"
+import { title } from "process"
 
 
  
@@ -103,3 +105,10 @@ export const twoFactorTokens = pgTable(
     },
   ]
 )
+
+export const articles = pgTable('articles', {
+  id:serial('id').primaryKey(),
+  description: text('description').notNull(),
+  title: text('title').notNull(),
+  created: timestamp('created').defaultNow(),
+})
