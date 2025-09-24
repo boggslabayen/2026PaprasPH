@@ -31,62 +31,67 @@ import {
   UserGroupIcon,
 } from "@heroicons/react/24/solid";
 
+import { Syringe, Scissors, EyeClosed } from "lucide-react";
+
 import Link from "next/link";
 import Image from "next/image";
+import { link } from "fs";
 
 const navListMenuItems = [
   {
     title: "Non-Surgical",
     description: "No need for surgery? We have you covered.",
-    icon: SquaresPlusIcon,
+    icon: Syringe,
+    link: "/procedures/non-surgical",
   },
   {
     title: "Reconstructive",
     description: "Reconstructive surgery for all your needs.",
-    icon: UserGroupIcon,
+    icon: Scissors,
+    link: "/procedures/reconstructive",
   },
   {
     title: "Aesthetic",
     description: "Aesthetic procedures to enhance your beauty.",
-    icon: Bars4Icon,
+    icon: EyeClosed,
+    link: "/procedures/aesthetic",
   },
 ];
 
 function NavListMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-  const renderItems = navListMenuItems.map(
-    ({ icon, title, description }, key) => (
-      <a href="#" key={key}>
-        <MenuItem
-          className="flex items-center gap-2 rounded-lg px-8"
-          placeholder={undefined}
-          onResize={undefined}
-          onResizeCapture={undefined}
-          onPointerEnterCapture={undefined}
-          onPointerLeaveCapture={undefined}
-        >
-          <div className="flex items-center justify-center rounded-lg !bg-blue-gray-50 py-4 px-0">
-            {" "}
-            {React.createElement(icon, {
-              strokeWidth: 2,
-              className: "h-6 text-gray-900 w-6",
-            })}
-          </div>
-          <div>
-            <Typography
-              variant="h6"
-              color="blue-gray"
-              className="flex items-center text-sm font-bold"
-              placeholder={undefined}
-              onResize={undefined}
-              onResizeCapture={undefined}
-              onPointerEnterCapture={undefined}
-              onPointerLeaveCapture={undefined}
-            >
-              {title}
-            </Typography>
-            {/* <Typography
+  const renderItems = navListMenuItems.map(({ icon, title, link }, key) => (
+    <a href={link} key={key}>
+      <MenuItem
+        className="flex items-center gap-2 rounded-lg px-8"
+        placeholder={undefined}
+        onResize={undefined}
+        onResizeCapture={undefined}
+        onPointerEnterCapture={undefined}
+        onPointerLeaveCapture={undefined}
+      >
+        <div className="flex items-center justify-center rounded-lg !bg-blue-gray-50 py-4 px-0">
+          {" "}
+          {React.createElement(icon, {
+            strokeWidth: 2,
+            className: "h-6 text-gray-900 w-6",
+          })}
+        </div>
+        <div>
+          <Typography
+            variant="h6"
+            color="blue-gray"
+            className="flex items-center text-sm font-bold"
+            placeholder={undefined}
+            onResize={undefined}
+            onResizeCapture={undefined}
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+          >
+            {title}
+          </Typography>
+          {/* <Typography
               variant="paragraph"
               className="text-xs !font-medium text-blue-gray-500"
               placeholder={undefined}
@@ -97,11 +102,10 @@ function NavListMenu() {
             >
               {description}
             </Typography> */}
-          </div>
-        </MenuItem>
-      </a>
-    )
-  );
+        </div>
+      </MenuItem>
+    </a>
+  ));
 
   return (
     <React.Fragment>
