@@ -296,7 +296,7 @@ export function NavbarWithMegaMenu() {
 
   return (
     <Navbar
-      className="mx-auto max-w-screen px-4 py-2 bg-amber-50 relative"
+      className="mx-auto max-w-screen px-4 py-2 bg-amber-50 relative border-0 rounded-none"
       placeholder={undefined}
       onResize={undefined}
       onResizeCapture={undefined}

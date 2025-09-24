@@ -4,6 +4,7 @@ import classes from "@/components/sections/becomemember.module.css";
 import { manrope, roboto } from "@/app/ui/fonts/fonts";
 import Image from "next/image";
 import { Button } from "@material-tailwind/react";
+import Link from "next/link";
 
 export default function BecomeAMember() {
   return (
@@ -22,18 +23,20 @@ export default function BecomeAMember() {
           science of plastic, reconstructive, and aesthetic surgery.
         </p>
 
-        <Button
-          variant={"outlined"}
-          size="lg"
-          className={`rounded-full ${roboto.className} bg-transparent border-1 border-black hover:bg-black hover:text-amber-500 px-8 py-4`}
-          placeholder={undefined}
-          onResize={undefined}
-          onResizeCapture={undefined}
-          onPointerEnterCapture={undefined}
-          onPointerLeaveCapture={undefined}
-        >
-          Learn More
-        </Button>
+        <Link href="/becomeamember">
+          <Button
+            variant={"outlined"}
+            size="lg"
+            className={`rounded-full ${roboto.className} bg-transparent border-1 border-black hover:bg-black hover:text-amber-500 px-8 py-4`}
+            placeholder={undefined}
+            onResize={undefined}
+            onResizeCapture={undefined}
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+          >
+            Learn More
+          </Button>
+        </Link>
       </div>
 
       <div className={`flex gap-4 justify-center`}>

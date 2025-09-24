@@ -3,6 +3,7 @@
 import { manrope, roboto } from "@/app/ui/fonts/fonts";
 import Image from "next/image";
 import { Button } from "@material-tailwind/react";
+import Link from "next/link";
 
 export default function AboutPapras() {
   return (
@@ -34,19 +35,20 @@ export default function AboutPapras() {
             PAPRAS continues its legacy of innovation, education, and
             compassion.
           </p>
-
-          <Button
-            variant={"filled"}
-            size="lg"
-            className={`rounded-full ${roboto.className} bg-amber-500  hover:bg-black hover:text-amber-500 px-8 py-4`}
-            placeholder={undefined}
-            onResize={undefined}
-            onResizeCapture={undefined}
-            onPointerEnterCapture={undefined}
-            onPointerLeaveCapture={undefined}
-          >
-            Learn More
-          </Button>
+          <Link href="/about">
+            <Button
+              variant={"filled"}
+              size="lg"
+              className={`rounded-full ${roboto.className} bg-amber-500  hover:bg-black hover:text-amber-500 px-8 py-4`}
+              placeholder={undefined}
+              onResize={undefined}
+              onResizeCapture={undefined}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
+            >
+              Learn More
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
