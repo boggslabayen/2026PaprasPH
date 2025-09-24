@@ -53,7 +53,7 @@ export const columns: ColumnDef<ArticleColumn>[] = [
     cell: ({ row }) => {
       const cellImage = row.getValue("image") as string;
       return (
-        <div className="">
+        <div className="w-12 h-12 flex items-center justify-center">
           <Image
             src={cellImage}
             alt="Article Image"

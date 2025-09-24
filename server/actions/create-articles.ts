@@ -12,7 +12,7 @@ const action = createSafeActionClient();
 export const createArticle = action
 .inputSchema(ArticleSchema)
 .action(async({ parsedInput }) => {
-    const { description, title, id } = parsedInput;
+    const { description, title, id, image } = parsedInput;
     if(id){
         const currentArticle = await db.query.articles.findFirst({
             where: eq(articles.id,id),
@@ -20,7 +20,7 @@ export const createArticle = action
         if(!currentArticle) return {error: 'Article not found'}
         const editedArticle = await db
         .update(articles)
-        .set({description,title})
+        .set({description,title,image})
         .where(eq(articles.id,id))
         .returning();
         revalidatePath("/dashboard/articles")
@@ -29,7 +29,7 @@ export const createArticle = action
     if(!id){
         const newArticle =await db
         .insert(articles)
-        .values({description,title})
+        .values({description,title,image})
         .returning();
         revalidatePath("/dashboard/articles")
         return { success: `Article ${newArticle[0].title} has been created`}

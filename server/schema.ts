@@ -108,6 +108,7 @@ export const twoFactorTokens = pgTable(
 
 export const articles = pgTable('articles', {
   id:serial('id').primaryKey(),
+  image: text("image").notNull(),
   description: text('description').notNull(),
   title: text('title').notNull(),
   created: timestamp('created').defaultNow(),

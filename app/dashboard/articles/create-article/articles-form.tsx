@@ -19,14 +19,22 @@ import z from "zod";
 import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 import { getArticle } from "@/server/actions/get-articles";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
+import "@uploadthing/react/styles.css";
+import { UploadButton, UploadDropzone } from "@/app/api/uploadthing/upload";
+import { PlusCircleIcon } from "lucide-react";
 
 export default function ArticlesForm() {
+  // uploading of article image
+  const [imageUploading, setImageUploading] = useState(false);
+
   const form = useForm<zArticleSchema>({
     resolver: zodResolver(ArticleSchema),
     defaultValues: {
       title: "",
       description: "",
+      image: "",
     },
     mode: "onChange",
   });
@@ -34,6 +42,8 @@ export default function ArticlesForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const editMode = searchParams.get("id");
+
+  const imageUrl = form.watch("image");
 
   const checkArticle = async (id: number) => {
     if (editMode) {
@@ -48,6 +58,7 @@ export default function ArticlesForm() {
         form.setValue("title", data.success.title);
         form.setValue("description", data.success.description);
         form.setValue("id", id);
+        form.setValue("image", data.success.image);
       }
     }
   };
@@ -187,6 +198,65 @@ export default function ArticlesForm() {
                       </>
                     )}
                   />
+                  <div className="border-1 border-gray-200 px-4 rounded-md w-fit">
+                    {/* {imageUrl && (
+                      <div className="mt-4">
+                        <img
+                          src={imageUrl}
+                          alt="Article preview"
+                          className="w-64 h-40 object-cover rounded-lg border"
+                        />
+                      </div>
+                    )} */}
+
+                    {!imageUrl ? (
+                      <div className="mt-4 w-64 h-40 object-cover rounded-lg border-2 border-dashed border-gray-400 flex flex-col items-center justify-center">
+                        <PlusCircleIcon className="h-10 w-10 pb-4" />
+                        <p>upload image</p>
+                      </div>
+                    ) : (
+                      <div className="mt-4">
+                        <img
+                          src={imageUrl}
+                          alt="Article preview"
+                          className="w-64 h-40 object-cover rounded-lg border-0"
+                        />
+                      </div>
+                    )}
+
+                    <UploadButton
+                      appearance={{
+                        button: "",
+                        container:
+                          "w-max flex-row rounded-md border-cyan-300  mt-4",
+                        allowedContent:
+                          "flex h-8 flex-col items-center justify-center px-2 text-black",
+                      }}
+                      endpoint={"avatarUploader"}
+                      onUploadBegin={() => {
+                        setImageUploading(true);
+                      }}
+                      onUploadError={(error) => {
+                        form.setError("image", {
+                          type: "validate",
+                          message: error.message,
+                        });
+                        setImageUploading(false);
+                        return;
+                      }}
+                      onClientUploadComplete={(res) => {
+                        form.setValue("image", res[0].ufsUrl);
+                        setImageUploading(false);
+                        return;
+                      }}
+                      content={{
+                        button({ ready }) {
+                          if (ready) return <div>Upload Image</div>;
+                          return <div>Uploading...</div>;
+                        },
+                      }}
+                    />
+                  </div>
                 </div>
 
                 <Button

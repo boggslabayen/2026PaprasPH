@@ -4,7 +4,8 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {protocol: 'https', hostname: 'lh3.googleusercontent.com'},
-      {protocol: 'https', hostname: 'utfs.io'}
+      {protocol: 'https', hostname: 'utfs.io'},
+       {protocol: "https", hostname: "cvwo80giag.ufs.sh" }, 
     ]
   },
   /* config options here */

@@ -1,5 +1,5 @@
 import { db } from "@/server";
-import imgplaceholder from "@/public/imgplaceholder.svg";
+// import imgplaceholder from "@/public/imgplaceholder.svg";
 import { DataTable } from "./data-table";
 import { columns } from "./columns";
 import { Button } from "@/components/ui/button";
@@ -14,7 +14,7 @@ export default async function ArticlesPage() {
     return {
       id: article.id,
       title: article.title,
-      image: imgplaceholder.src,
+      image: article.image,
     };
   });
   if (!dataTable) throw new Error("No data found");
