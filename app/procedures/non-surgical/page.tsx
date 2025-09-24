@@ -7,31 +7,31 @@ const nonSurgicalTreatments = [
     id: 1,
     treatmentName: "Botox",
     image: "/procedures/non-surgical/1.png",
-    link: "",
+    link: "/procedures/non-surgical/botox",
   },
   {
     id: 2,
     treatmentName: "Thread Lifting",
     image: "/procedures/non-surgical/2.png",
-    link: "",
+    link: "/procedures/non-surgical/thread-lifting",
   },
   {
     id: 3,
     treatmentName: "Fillers",
     image: "/procedures/non-surgical/3.png",
-    link: "",
+    link: "/procedures/non-surgical/fillers",
   },
   {
     id: 4,
     treatmentName: "Energy Devices",
     image: "/procedures/non-surgical/4.png",
-    link: "",
+    link: "/procedures/non-surgical/energy-devices",
   },
   {
     id: 5,
     treatmentName: "Platelet-Rich Plasma",
     image: "/procedures/non-surgical/5.png",
-    link: "",
+    link: "/procedures/non-surgical/platelet-rich-plasma",
   },
 ];
 

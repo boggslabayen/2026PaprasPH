@@ -91,17 +91,6 @@ function NavListMenu() {
           >
             {title}
           </Typography>
-          {/* <Typography
-              variant="paragraph"
-              className="text-xs !font-medium text-blue-gray-500"
-              placeholder={undefined}
-              onResize={undefined}
-              onResizeCapture={undefined}
-              onPointerEnterCapture={undefined}
-              onPointerLeaveCapture={undefined}
-            >
-              {description}
-            </Typography> */}
         </div>
       </MenuItem>
     </a>
@@ -214,7 +203,7 @@ const NavList = (
 
     <NavListMenu />
 
-    <Typography
+    {/* <Typography
       as="a"
       href="#"
       variant="small"
@@ -236,9 +225,9 @@ const NavList = (
       >
         Articles
       </ListItem>
-    </Typography>
+    </Typography> */}
 
-    <Typography
+    {/* <Typography
       as="a"
       href="#"
       variant="small"
@@ -260,7 +249,7 @@ const NavList = (
       >
         Events
       </ListItem>
-    </Typography>
+    </Typography> */}
 
     <Typography
       as="a"
