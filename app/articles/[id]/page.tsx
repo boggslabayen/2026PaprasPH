@@ -3,11 +3,13 @@ import { manrope, roboto } from "@/app/ui/fonts/fonts";
 import { getArticle } from "@/server/actions/get-articles"; // your DB fetch
 
 interface Props {
-  params: { id: string };
+  params: Promise<{
+    id: string;
+  }>;
 }
 
 export default async function ArticlePage({ params }: Props) {
-  const { id } = params;
+  const { id } = await params;
   const article = await getArticle(Number(id));
 
   if (!article || article.error) return <p>Article not found</p>;
