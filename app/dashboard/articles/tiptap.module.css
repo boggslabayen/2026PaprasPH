@@ -1,0 +1,9 @@
+.tiptap {
+  min-height: 600px; /* starting height */
+  max-height: none; /* remove any hard limit */
+  height: 600px;
+  overflow: scroll; /* allow it to expand */
+}
+.tiptap p {
+  margin: 0; /* optional, to tighten spacing */
+}

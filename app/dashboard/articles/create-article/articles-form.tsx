@@ -6,7 +6,6 @@ import {
   Typography,
   Button,
   Input,
-  Textarea,
 } from "@material-tailwind/react";
 
 import { useForm, Controller, FormProvider } from "react-hook-form";
@@ -174,41 +173,7 @@ export default function ArticlesForm() {
                     )}
                   />
 
-                  {/* Article Description */}
-
-                  <Controller
-                    control={form.control}
-                    name="description"
-                    render={({ field }) => (
-                      <>
-                        <Typography
-                          variant="h6"
-                          color="blue-gray"
-                          className="-mb-3"
-                          placeholder={undefined}
-                          onResize={undefined}
-                          onResizeCapture={undefined}
-                          onPointerEnterCapture={undefined}
-                          onPointerLeaveCapture={undefined}
-                        >
-                          Article Description
-                        </Typography>
-
-                        <Tiptap val={field.value} />
-                      </>
-                    )}
-                  />
                   <div className="border-1 border-gray-200 px-4 rounded-md w-fit">
-                    {/* {imageUrl && (
-                      <div className="mt-4">
-                        <img
-                          src={imageUrl}
-                          alt="Article preview"
-                          className="w-64 h-40 object-cover rounded-lg border"
-                        />
-                      </div>
-                    )} */}
-
                     {!imageUrl ? (
                       <div className="mt-4 w-64 h-40 object-cover rounded-lg border-2 border-dashed border-gray-400 flex flex-col items-center justify-center">
                         <PlusCircleIcon className="h-10 w-10 pb-4" />
@@ -257,6 +222,57 @@ export default function ArticlesForm() {
                       }}
                     />
                   </div>
+
+                  {/* Article Description */}
+
+                  {/* <Controller
+                    control={form.control}
+                    name="description"
+                    render={({ field }) => (
+                      <>
+                        <Typography
+                          variant="h6"
+                          color="blue-gray"
+                          className="-mb-3"
+                          placeholder={undefined}
+                          onResize={undefined}
+                          onResizeCapture={undefined}
+                          onPointerEnterCapture={undefined}
+                          onPointerLeaveCapture={undefined}
+                        >
+                          Article Description
+                        </Typography>
+
+                        <Tiptap val={field.value} />
+                      </>
+                    )}
+                  /> */}
+
+                  <Controller
+                    control={form.control}
+                    name="description"
+                    render={({ field }) => (
+                      <>
+                        <Typography
+                          variant="h6"
+                          color="blue-gray"
+                          className="-mb-3"
+                          placeholder={undefined}
+                          onResize={undefined}
+                          onResizeCapture={undefined}
+                          onPointerEnterCapture={undefined}
+                          onPointerLeaveCapture={undefined}
+                        >
+                          Article Description
+                        </Typography>
+
+                        <Tiptap
+                          val={field.value}
+                          className="p-4 rounded-md border border-gray-300"
+                        />
+                      </>
+                    )}
+                  />
                 </div>
 
                 <Button
