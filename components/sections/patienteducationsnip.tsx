@@ -2,6 +2,7 @@
 
 import { manrope, roboto } from "@/app/ui/fonts/fonts";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function PatientEducatioSnippet() {
   return (
@@ -21,50 +22,56 @@ export default function PatientEducatioSnippet() {
       </div>
       <div className="max-w-3xl mx-auto">
         <div className="grid grid-cols-3 gap-4">
-          <div>
-            <Image
-              src={"/education/aesthetic.png"}
-              width={432}
-              height={285}
-              alt="aesthetic image"
-              className="w-full pb-4 rounded-md"
-            />
-            <h4
-              className={`text-center ${manrope.className} font-bold text-lg`}
-            >
-              Aesthetic
-            </h4>
-          </div>
+          <Link href={"/procedures/recons"}>
+            <div>
+              <Image
+                src={"/education/aesthetic.png"}
+                width={432}
+                height={285}
+                alt="aesthetic image"
+                className="w-full pb-4 rounded-md"
+              />
+              <h4
+                className={`text-center ${manrope.className} font-bold text-lg`}
+              >
+                Aesthetic
+              </h4>
+            </div>
+          </Link>
 
-          <div>
-            <Image
-              src={"/education/image.png"}
-              width={432}
-              height={285}
-              alt="aesthetic image"
-              className="w-full pb-4 rounded-md"
-            />
-            <h4
-              className={`text-center ${manrope.className} font-bold text-lg`}
-            >
-              Aesthetic
-            </h4>
-          </div>
+          <Link href={"/procedures/aesthetic"}>
+            <div>
+              <Image
+                src={"/education/image.png"}
+                width={432}
+                height={285}
+                alt="aesthetic image"
+                className="w-full pb-4 rounded-md"
+              />
+              <h4
+                className={`text-center ${manrope.className} font-bold text-lg`}
+              >
+                Aesthetic
+              </h4>
+            </div>
+          </Link>
 
-          <div>
-            <Image
-              src={"/education/reconstructive.png"}
-              width={432}
-              height={285}
-              alt="aesthetic image"
-              className="w-full pb-4 rounded-md"
-            />
-            <h4
-              className={`text-center ${manrope.className} font-bold text-lg`}
-            >
-              Non-Surgical
-            </h4>
-          </div>
+          <Link href={"/procedures/non-surgical"}>
+            <div>
+              <Image
+                src={"/education/reconstructive.png"}
+                width={432}
+                height={285}
+                alt="aesthetic image"
+                className="w-full pb-4 rounded-md"
+              />
+              <h4
+                className={`text-center ${manrope.className} font-bold text-lg`}
+              >
+                Non-Surgical
+              </h4>
+            </div>
+          </Link>
         </div>
       </div>
     </section>

@@ -203,9 +203,9 @@ const NavList = (
 
     <NavListMenu />
 
-    {/* <Typography
+    <Typography
       as="a"
-      href="#"
+      href="/articles"
       variant="small"
       color="blue-gray"
       className="font-medium"
@@ -225,7 +225,7 @@ const NavList = (
       >
         Articles
       </ListItem>
-    </Typography> */}
+    </Typography>
 
     {/* <Typography
       as="a"
@@ -299,7 +299,7 @@ export function NavbarWithMegaMenu() {
       <div className="flex items-center justify-between lg:px-16 lg:py-8">
         <Link href="/" className="flex items-center">
           <Image
-            src="/logo.png"
+            src="/papraslogo.webp"
             alt="Papras Logo"
             width={337}
             height={88}
@@ -311,7 +311,7 @@ export function NavbarWithMegaMenu() {
           <div className="hidden lg:block">{NavList}</div>
 
           <div className="hidden lg:block  items-center">
-            <Button
+            {/* <Button
               variant="text"
               size="sm"
               className="hidden lg:inline-block bg-amber-300 rounded-full hover:bg-black hover:text-amber-400"
@@ -322,7 +322,7 @@ export function NavbarWithMegaMenu() {
               onPointerLeaveCapture={undefined}
             >
               <span>Find a Doctor</span>
-            </Button>
+            </Button> */}
           </div>
         </div>
 
@@ -372,7 +372,7 @@ export function NavbarWithMegaMenu() {
       {openNav ? (
         <Collapse open={openNav}>
           {NavList}
-          <div className="flex items-center gap-x-1">
+          {/* <div className="flex items-center gap-x-1">
             <Button
               fullWidth
               variant="filled"
@@ -386,7 +386,7 @@ export function NavbarWithMegaMenu() {
             >
               <span>Find A Doctor</span>
             </Button>
-          </div>
+          </div> */}
         </Collapse>
       ) : null}
     </Navbar>

@@ -8,17 +8,17 @@ import Link from "next/link";
 export default function AboutPapras() {
   return (
     <section className="my-8 px-4">
-      <div className="md:grid md:grid-cols-2 content-center gap-4 max-w-3xl mx-auto py-8">
-        <div>
+      <div className="flex content-center gap-4 max-w-4xl mx-auto py-8">
+        <div className="w-2/3">
           <Image
             src={"/docs/AboutImage.png"}
             width={656}
             height={498}
             alt="Doctors in pose"
-            className="h-full pb-8 md:pb-0"
+            className="rounded-md pb-8 md:pb-0"
           />
         </div>
-        <div>
+        <div className="w-1/3">
           <p className={`${roboto.className} font-light text-lg`}>
             About PAPRAS
           </p>

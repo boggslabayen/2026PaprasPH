@@ -26,7 +26,7 @@ export default async function ArticleSnippet() {
       </div>
 
       {"success" in articles && Array.isArray(articles.success) ? (
-        articles.success.map((article: any) => (
+        articles.success.slice(0, 3).map((article: any) => (
           <div
             className="flex gap-4 max-w-3xl mx-auto mb-16 px-8 md:px-0"
             key={article.id}

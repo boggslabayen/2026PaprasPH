@@ -38,7 +38,7 @@ export default function Home() {
       <PatientEducatioSnippet />
       <AboutPapras />
       <BecomeAMember />
-      <EventSnippet />
+      {/* <EventSnippet /> */}
       <ArticleSnippet />
     </main>
   );
