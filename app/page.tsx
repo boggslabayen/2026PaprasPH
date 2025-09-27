@@ -26,7 +26,7 @@ export default function Home() {
         </div>
         <div className="flex justify-center">
           <Image
-            src="/education/BannerImage.png"
+            src="/education/banner.webp"
             alt="Hero Image"
             width={500}
             height={500}
