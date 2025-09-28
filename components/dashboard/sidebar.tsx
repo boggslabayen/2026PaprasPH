@@ -105,6 +105,23 @@ export function Sidebar() {
           }
         />
 
+        {/* Doctors */}
+        <SideTab
+          path="/dashboard/doctors"
+          name="Doctors"
+          prefix={
+            <ListItemPrefix
+              placeholder={undefined}
+              onResize={undefined}
+              onResizeCapture={undefined}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
+            >
+              <CalendarDaysIcon className="h-5 w-5" />
+            </ListItemPrefix>
+          }
+        />
+
         {/* Settings */}
         <SideTab
           path="/dashboard/settings"

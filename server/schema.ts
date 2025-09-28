@@ -113,3 +113,16 @@ export const articles = pgTable('articles', {
   title: text('title').notNull(),
   created: timestamp('created').defaultNow(),
 })
+
+export const doctors = pgTable('doctors', {
+  id:serial('id').primaryKey(),
+  name: text("doctors_name").notNull(),
+  email: text('email').notNull(),
+  number: text('number').notNull(),
+  streetAddress: text('street').notNull(),
+  region: text('region').notNull(),
+  province: text('province').notNull(),
+  city: text('city').notNull(),
+  baranggay: text('baranggay').notNull(),
+  created: timestamp('created').defaultNow(),
+})

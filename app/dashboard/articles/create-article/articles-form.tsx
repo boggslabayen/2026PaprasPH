@@ -225,29 +225,6 @@ export default function ArticlesForm() {
 
                   {/* Article Description */}
 
-                  {/* <Controller
-                    control={form.control}
-                    name="description"
-                    render={({ field }) => (
-                      <>
-                        <Typography
-                          variant="h6"
-                          color="blue-gray"
-                          className="-mb-3"
-                          placeholder={undefined}
-                          onResize={undefined}
-                          onResizeCapture={undefined}
-                          onPointerEnterCapture={undefined}
-                          onPointerLeaveCapture={undefined}
-                        >
-                          Article Description
-                        </Typography>
-
-                        <Tiptap val={field.value} />
-                      </>
-                    )}
-                  /> */}
-
                   <Controller
                     control={form.control}
                     name="description"
