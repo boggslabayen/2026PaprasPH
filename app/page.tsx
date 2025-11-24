@@ -5,11 +5,12 @@ import BecomeAMember from "@/components/sections/becomember";
 import EventSnippet from "@/components/sections/eventsnippets";
 import ArticleSnippet from "@/components/sections/articlesnippets";
 import PatientEducatioSnippet from "@/components/sections/patienteducationsnip";
+import BannerCarousel from "@/app/ui/bannercarousel";
 
 export default function Home() {
   return (
     <main>
-      <div className="md:flex mx-auto justify-center items-center md:px-4 pt-40">
+      {/* <div className="md:flex mx-auto justify-center items-center md:px-4 pt-40">
         <div className="max-w-2xl mx-4">
           <div>
             <h1
@@ -33,7 +34,9 @@ export default function Home() {
             className="hidden md:block w-80"
           />
         </div>
-      </div>
+      </div> */}
+
+      <BannerCarousel />
 
       <PatientEducatioSnippet />
       <AboutPapras />

@@ -227,7 +227,7 @@ const NavList = (
       </ListItem>
     </Typography>
 
-    {/* <Typography
+    <Typography
       as="a"
       href="#"
       variant="small"
@@ -249,7 +249,7 @@ const NavList = (
       >
         Events
       </ListItem>
-    </Typography> */}
+    </Typography>
 
     <Typography
       as="a"
