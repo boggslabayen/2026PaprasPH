@@ -32,10 +32,10 @@ export default function Events() {
         </Link>
         <p>
           Join the IMCAS World Congress in Paris from January 29 to 31, 2026,
-          where leading experts in dermatology, plastic surgery, and aesthetic
-          science gather to exchange insights and innovations. Experience
-          cutting-edge lectures, live demonstrations, and networking
-          opportunities that shape the future of aesthetic medicine.
+          where leading experts in plastic surgery, and aesthetic science gather
+          to exchange insights and innovations. Experience cutting-edge
+          lectures, live demonstrations, and networking opportunities that shape
+          the future of aesthetic medicine.
         </p>
       </div>
     </section>
