@@ -229,7 +229,7 @@ const NavList = (
 
     <Typography
       as="a"
-      href="#"
+      href="/events"
       variant="small"
       color="blue-gray"
       className="font-medium"

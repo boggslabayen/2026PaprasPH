@@ -28,13 +28,14 @@ export default function Events() {
           target="_blank"
           className="text-blue-600 hover:underline"
         >
-          IMCAS ACADEMY
+          IMCAS World Congress 2026
         </Link>
         <p>
-          IMCAS Academy offers a wide range of educational resources including
-          webinars, articles, and case studies in the fields of dermatology,
-          plastic surgery, and aesthetic medicine. Access expert knowledge and
-          stay updated with the latest advancements in aesthetic practices.
+          Join the IMCAS World Congress in Paris from January 29 to 31, 2026,
+          where leading experts in dermatology, plastic surgery, and aesthetic
+          science gather to exchange insights and innovations. Experience
+          cutting-edge lectures, live demonstrations, and networking
+          opportunities that shape the future of aesthetic medicine.
         </p>
       </div>
     </section>
